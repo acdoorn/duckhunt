@@ -10,7 +10,7 @@ public class BirdView extends JPanel{
 	public BirdView(Bird bird){
 		this.b = bird;
 		switch(b.getColor()){
-		case green: birdImage
+		case green: // 
 			break;
 		case blue: break;
 		case red: break;

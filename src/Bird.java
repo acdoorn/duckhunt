@@ -9,8 +9,8 @@ public class Bird {
 	public enum color {red,green,blue};
 	
 	public Bird(int xpos, int ypos, color c){
-		x = xpos;
-		y = ypos;
+		this.x = xpos;
+		this.y = ypos;
 		this.c = c;
 	}
 	
