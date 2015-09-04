@@ -8,11 +8,11 @@ import javax.swing.JPanel;
 
 public class Board extends JPanel{
 
-    private BufferedImage image;
+    private BufferedImage background;
 
     public Board() {
        try {                
-          image = ImageIO.read(new File("./src/images/background.png"));
+          background = ImageIO.read(new File("./src/images/background.png"));
        } catch (IOException ex) {
             // handle exception...       
     	   }
@@ -21,7 +21,7 @@ public class Board extends JPanel{
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(image, 0, -350, null); // see javadoc for more info on the parameters            
+        g.drawImage(background, 0, -350, null); // see javadoc for more info on the parameters            
     }
 
 }
