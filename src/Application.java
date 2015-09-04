@@ -15,8 +15,8 @@ public class Application extends JFrame {
     private void initUI() {
 
         add(new Board());
-
-        setSize(500, 400);
+        pack();
+        setSize(1600, 1200);
 
         setTitle("Application");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,6 +29,7 @@ public class Application extends JFrame {
             @Override
             public void run() {
                 Application ex = new Application();
+                ex.setExtendedState(JFrame.MAXIMIZED_BOTH); 
                 ex.setVisible(true);
             }
         });
