@@ -4,7 +4,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 
 
-@SuppressWarnings("serial")
+
 public class Application extends JFrame {
     
     public Application() {
@@ -29,6 +29,7 @@ public class Application extends JFrame {
             @Override
             public void run() {
                 Application ex = new Application();
+                
                 ex.setExtendedState(JFrame.MAXIMIZED_BOTH); 
                 ex.setVisible(true);
             }
