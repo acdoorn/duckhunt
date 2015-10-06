@@ -11,14 +11,12 @@ import javax.swing.JPanel;
 
 public class Board extends JPanel
         implements Runnable {
-
-    private final int B_WIDTH = 350;
-    private final int B_HEIGHT = 350;
-    private final int INITIAL_X = -40;
+    private final int INITIAL_X = 1600;
     private final int INITIAL_Y = -40;
-    private final int DELAY = 25;
+    private final int DELAY = 5;
     
     private BufferedImage background;
+    private Bird blueBird;
 
     private Image star;
     private Thread animator;
@@ -43,8 +41,9 @@ public class Board extends JPanel
     private void initBoard() {
     	this.background = loadImage("./src/images/background.png");
     	
-        setPreferredSize(new Dimension(B_WIDTH, B_HEIGHT));
+        setPreferredSize(new Dimension(1600, 900));
         setDoubleBuffered(true);
+    	blueBird = new Bird(1600, 20, Bird.color.red, loadImage("./src/images/bluebird.png"));
 
 //        loadImage();
 
@@ -63,8 +62,10 @@ public class Board extends JPanel
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        
 
         drawImage(g, background);
+        drawImage(g, blueBird);
     }
 
     private void drawImage(Graphics g, BufferedImage image) {
@@ -72,16 +73,22 @@ public class Board extends JPanel
         g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
         Toolkit.getDefaultToolkit().sync();
     }
+    
+    private void drawImage(Graphics g, Bird b) {
+
+        g.drawImage(b.getImage(), b.getX(), b.getY(), b.getWidth(), b.getHeight(), this);
+        Toolkit.getDefaultToolkit().sync();
+    }
 
     private void cycle() {
 
-        x += 1;
+        blueBird.setX(blueBird.getX()-1);
         y += 1;
 
-        if (y > B_HEIGHT) {
+        if (blueBird.getX() < -100) {
 
-            y = INITIAL_Y;
-            x = INITIAL_X;
+            blueBird.setY(blueBird.getY()+80);
+            blueBird.setX(1800);
         }
     }
 
