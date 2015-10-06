@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 
 
 public class Application extends JFrame {
+
     
     public Application() {
 
@@ -23,16 +24,7 @@ public class Application extends JFrame {
         setLocationRelativeTo(null);
     }    
     
-    public static void main(String[] args) {
-        
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                Application ex = new Application();
-                
-                ex.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-                ex.setVisible(true);
-            }
-        });
-    }
+
+    
+    
 }
