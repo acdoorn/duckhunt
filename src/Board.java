@@ -1,4 +1,3 @@
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -42,15 +41,15 @@ public class Board extends JPanel
     }
 
     private void initBoard() {
-    	background = loadImage("./src/images/background.png");
+    	this.background = loadImage("./src/images/background.png");
     	
         setPreferredSize(new Dimension(B_WIDTH, B_HEIGHT));
         setDoubleBuffered(true);
 
 //        loadImage();
 
-        x = INITIAL_X;
-        y = INITIAL_Y;
+        this.x = INITIAL_X;
+        this.y = INITIAL_Y;
     }
 
     @Override
