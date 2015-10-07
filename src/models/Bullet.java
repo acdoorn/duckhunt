@@ -2,6 +2,7 @@ package models;
 
 import containers.MoveContainer;
 import factories.BehaviourFactory;
+import factories.UnitFactory;
 import models.Bird.color;
 
 public class Bullet extends Unit{
@@ -16,8 +17,12 @@ public class Bullet extends Unit{
 		// TODO Auto-generated constructor stub
 	}
 	
+	public Bullet() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public static void register(){
-		// register bullet at the unitfactory
+		UnitFactory.getInstance().RegisterUnit("bullet", new Bullet());
 	}
 
 	@Override

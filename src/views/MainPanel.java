@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
+import models.Unit;
+
 public class MainPanel extends JPanel {
     private BufferedImage background;
     private ArrayList<UnitView> views;
@@ -37,6 +39,10 @@ public class MainPanel extends JPanel {
         setPreferredSize(new Dimension(1600, 1200));
         setDoubleBuffered(true);
     }
+    
+    public void createUnitView(Unit u){
+    	views.add(new UnitView(u));
+    }
 
     @Override
     public void paintComponent(Graphics g) {
@@ -44,6 +50,7 @@ public class MainPanel extends JPanel {
         
 
         drawImage(g, background);
+        
         for(UnitView v : views){
         	v.update(g);
         }

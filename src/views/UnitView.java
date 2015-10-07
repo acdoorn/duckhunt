@@ -18,6 +18,9 @@ public class UnitView extends JPanel{
 	private Unit unit;
 	private BufferedImage image;
 	
+	public UnitView(Unit unit){
+		System.out.println("got the Unit Constructor here....");
+	}
 	
 	public UnitView(Bird bird){
 		this.unit = bird;

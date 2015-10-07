@@ -24,7 +24,7 @@ public class UnitContainer
 
     public void AddUnit(Unit unit)
     {
-    	getUnits().add(unit);
+    	_units.add(unit);
     }
 
     public void ClearDestroyedUnits()

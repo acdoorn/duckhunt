@@ -3,6 +3,7 @@ import java.awt.Color;
 
 import containers.MoveContainer;
 import factories.BehaviourFactory;
+import factories.UnitFactory;
 
 public class Bird extends Unit{
 	
@@ -24,6 +25,10 @@ public class Bird extends Unit{
 //		this.image = image;
 	}
 	
+	public Bird() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public color getColor() {
 		return c;
 	}
@@ -34,7 +39,7 @@ public class Bird extends Unit{
 	}
 	
 	public static void register(){
-		// register bird at the unitfactory
+		UnitFactory.getInstance().RegisterUnit("bird", new Bird());
 	}
 
 //	public void isClicked(){
