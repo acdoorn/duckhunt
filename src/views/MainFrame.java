@@ -8,13 +8,15 @@ public class MainFrame extends JFrame {
 	public MainFrame(JPanel window) {
 
         add(window);
-        pack();
+       
         setSize(1600, 1200);
 
         setTitle("Duckhunt");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-		setExtendedState(JFrame.MAXIMIZED_BOTH); 
+//		setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        setResizable(false);
+		pack();
 		setVisible(true);
 	}
 

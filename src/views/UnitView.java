@@ -17,19 +17,23 @@ public class UnitView extends JPanel{
 	private Unit unit;
 	private BufferedImage image;
 	
-	public UnitView(Unit unit, MainPanel mp){
+	public UnitView(Unit unit){
 		this.unit = unit;
 		if(unit.isBird()){
 			createBirdView();
 		} else {
 			createBulletView();
 		}
-		mp.add(this);
+
 		
 		
 	}
 	
-	public void createBirdView(){
+	public Unit getUnit(){
+		return unit;
+	}
+	
+	private void createBirdView(){
 		Bird b = (Bird) unit;
 		switch(b.getColor()){
 		case green: loadImage("./src/images/greenbird.png");
@@ -44,13 +48,13 @@ public class UnitView extends JPanel{
 		}
 	}
 	
-	public void createBulletView(){
+	private void createBulletView(){
 		// TODO createBulletView
 	}
-	
-	public void update(Graphics g){
+
+	public void draw(Graphics g){
 		if(image != null){
-			g.drawImage(image,(int)unit.getX(), (int)unit.getY(), 100 , 70 , this);
+			g.drawImage(image,(int)unit.getX(), (int)unit.getY(), (int)unit.getWidth() , (int)unit.getHeight() , this);
 		}
 	}
 	

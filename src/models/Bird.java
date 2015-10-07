@@ -9,14 +9,16 @@ public class Bird extends Unit{
 //	private int y;
 	private color c;
 //	private BufferedImage image;
-	private int width = 100;
-	private int height = 70;
+//	private int width = 100;
+//	private int height = 70;
 //	
 	
 	public enum color {red,green,blue};
 	
 	public Bird(MoveContainer mc, BehaviourFactory bf,double x, double y, double dx, double dy, color c) {
 		super( mc,  bf, x,  y,  dx,  dy);
+		width = 100;
+		height = 70;
 //		this.x = xpos;
 //		this.y = ypos;
 		this.c = c;
@@ -31,10 +33,7 @@ public class Bird extends Unit{
 		return c;
 	}
 	
-	@Override
-	public void die(){
-		
-	}
+
 	
 	@Override
 	public boolean isBird(){

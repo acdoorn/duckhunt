@@ -5,11 +5,9 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
@@ -18,10 +16,12 @@ import models.Unit;
 
 public class MainPanel extends JPanel {
     private BufferedImage background;
+    private ArrayList<UnitView> unitViews;
     private HashMap<Unit, UnitView> views;
 
     public MainPanel() {
     	views = new HashMap<Unit, UnitView>();
+    	unitViews = new ArrayList<UnitView>();
         initBoard();
     }
 
@@ -46,30 +46,35 @@ public class MainPanel extends JPanel {
     // call this method when a new unit is created.
     public void UpdateUnitViews(List<Unit> units){
     	for(Unit u : units){
-    		if(!views.containsKey(u)){
-    			views.put(u, new UnitView(u, this));
+    		boolean existing = false;
+    		for(UnitView v : unitViews){
+    			if(v.getUnit() == null){
+    				this.remove(v);
+    				unitViews.remove(v);
+    			}else {
+	    			if(v.getUnit().equals(u)){
+	    				existing = true;
+	    			}
+    			}
+    		}
+    		if(!existing){
+    			UnitView uv = new UnitView(u);
+    			unitViews.add(uv);
+    			this.add(uv);
+    			uv.repaint();
+    			
     		}
     	}
+
     }
 
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(background, 0, 0, getWidth(), getHeight(), this);
-
-        
-        Iterator<Entry<Unit, UnitView>> it = views.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry<Unit, UnitView> pair = (Entry<Unit, UnitView>)it.next();
-            if(pair.getKey() != null){
-            	UnitView uv = pair.getValue();
-            	uv.update(g);
-            } else {
-            	views.remove(pair.getKey(), pair.getValue());
-            }
-            it.remove(); // avoids a ConcurrentModificationException
+        for(UnitView v : unitViews){
+        	v.draw(g);
         }
-        //Toolkit.getDefaultToolkit().sync();
         
     }
 
