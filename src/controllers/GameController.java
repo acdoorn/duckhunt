@@ -2,16 +2,18 @@ package controllers;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import containers.MoveContainer;
 import views.MainFrame;
 import views.MainPanel;
+import containers.MoveContainer;
 import containers.UnitContainer;
 
 public class GameController extends JFrame {
 	private boolean gameRunning = true;
 	private int lastFpsTime;
 	private MainPanel mainPanel;
+	private MainFrame mainFrame;
 	private UnitContainer unitContainer;
+	private double delta;
 
 	public GameController() {
 		initUI();
@@ -20,7 +22,7 @@ public class GameController extends JFrame {
 	
 	private void initUI() {
 		mainPanel = new MainPanel();
-		new MainFrame(mainPanel);
+		mainFrame = new MainFrame(mainPanel);
 	}
 	
 	public UnitContainer getUnitContainer() {
@@ -54,7 +56,7 @@ public class GameController extends JFrame {
 	         long now = System.nanoTime();
 	         long updateLength = now - lastLoopTime;
 	         lastLoopTime = now;
-	         double delta = updateLength / ((double)OPTIMAL_TIME);
+	         delta = updateLength / ((double)OPTIMAL_TIME);
 
 	         // update the frame counter
 	         lastFpsTime += updateLength;
@@ -67,7 +69,8 @@ public class GameController extends JFrame {
 	         render();
 	         
 	         try{
-	        	 Thread.sleep( (lastLoopTime-System.nanoTime() + OPTIMAL_TIME)/1000000 );
+	        	 if((lastLoopTime-System.nanoTime() + OPTIMAL_TIME) > 0)
+	        		 Thread.sleep( (lastLoopTime-System.nanoTime() + OPTIMAL_TIME)/1000000 );
 	        	 }
 	         catch(Exception e){
 	        	 e.printStackTrace();
@@ -81,6 +84,17 @@ public class GameController extends JFrame {
 		   // updates times delta, so we have no problems with fps/gameupdates
 		   MoveContainer.getInstance().moveUnits(delta);
 	      
+	   }
+	   
+	   public double getDelta() {
+		   return delta;
+	   }
+	   
+	   public JPanel getMainPanel() {
+		   return mainPanel;
+	   }
+	   public JFrame getMainFrame() {
+		   return mainFrame;
 	   }
 	   
 	   private void render(){

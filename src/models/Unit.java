@@ -1,10 +1,11 @@
 package models;
 
 
+import models.Bird.color;
+import behaviours.DrawBehaviour;
 import behaviours.MoveBehaviour;
 import containers.MoveContainer;
 import factories.BehaviourFactory;
-import models.Bird.color;
 
 public abstract class Unit
 {
@@ -21,7 +22,7 @@ public abstract class Unit
 //    public static Random rnd = new Random();
     private MoveContainer moveContainer;
     private BehaviourFactory behaviourFactory;
-//    private DrawBehaviour drawBehaviour;
+    private DrawBehaviour drawBehaviour;
     private MoveBehaviour moveBehaviour;
 
 	
@@ -46,7 +47,7 @@ public abstract class Unit
 		this.deltay = dy;
        
         moveBehaviour = bf.createMoveBehaviour(this);
-//        drawBehaviour = bf.CreateDrawBehaviour(this);
+        drawBehaviour = bf.createDrawBehaviour(this);
         moveContainer.add(moveBehaviour);
 
     }

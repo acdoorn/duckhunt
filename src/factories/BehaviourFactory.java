@@ -20,8 +20,8 @@ public class BehaviourFactory {
      {
          return new MoveBehaviour(unit);
      }
-     public DrawBehaviour CreateDrawBehaviour(Unit unit)
+     public DrawBehaviour createDrawBehaviour(Unit unit)
      {
-         return new DrawBehaviour(unit);
+         return new DrawBehaviour(unit, 0.07, 0, true);
      }
 }
