@@ -2,7 +2,6 @@ package views;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -10,6 +9,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
@@ -58,18 +58,18 @@ public class MainPanel extends JPanel {
         g.drawImage(background, 0, 0, getWidth(), getHeight(), this);
 
         
-        Iterator it = views.entrySet().iterator();
+        Iterator<Entry<Unit, UnitView>> it = views.entrySet().iterator();
         while (it.hasNext()) {
-            Map.Entry pair = (Map.Entry)it.next();
+            Map.Entry<Unit, UnitView> pair = (Entry<Unit, UnitView>)it.next();
             if(pair.getKey() != null){
-            	UnitView uv = (UnitView)pair.getValue();
+            	UnitView uv = pair.getValue();
             	uv.update(g);
             } else {
             	views.remove(pair.getKey(), pair.getValue());
             }
             it.remove(); // avoids a ConcurrentModificationException
         }
-        Toolkit.getDefaultToolkit().sync();
+        //Toolkit.getDefaultToolkit().sync();
         
     }
 

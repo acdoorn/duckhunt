@@ -46,10 +46,10 @@ public class Bird extends Unit{
 		greenbird.c = color.green;
 		UnitFactory.getInstance().RegisterUnit("greenbird", greenbird);
 		Bird redbird = new Bird();
-		greenbird.c = color.red;
+		redbird.c = color.red;
 		UnitFactory.getInstance().RegisterUnit("redbird", redbird);
 		Bird bluebird = new Bird();
-		greenbird.c = color.green;
+		bluebird.c = color.green;
 		UnitFactory.getInstance().RegisterUnit("bluebird", bluebird);
 	}
 

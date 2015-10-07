@@ -24,8 +24,9 @@ public class UnitView extends JPanel{
 		} else {
 			createBulletView();
 		}
-		this.updateUI();
 		mp.add(this);
+		
+		
 	}
 	
 	public void createBirdView(){
