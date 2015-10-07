@@ -1,3 +1,4 @@
+package models;
 import java.awt.image.BufferedImage;
 
 public class Bird {
