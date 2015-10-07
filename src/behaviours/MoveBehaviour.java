@@ -11,8 +11,15 @@ public class MoveBehaviour implements Behaviour {
         this.unit = unit;
     }
 
-    public void Behave(float deltaTime)
+    public void Behave(double delta)
     {
+    	unit.setX(unit.getX() + unit.getDeltax()*delta);
+    	unit.setY(unit.getY() + unit.getDeltay()*delta);
+    	
+    	if(unit.getX() < -100 || unit.getX() > 1800 || unit.getY() < -100 || unit.getY() > 1000){
+    		unit.die();
+    	}
+    	
         //unit.x++;
 //        if (unit.gotShot)
 //        {

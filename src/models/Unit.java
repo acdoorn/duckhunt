@@ -1,5 +1,10 @@
 package models;
 
+
+import java.awt.image.BufferedImage;
+
+import behaviours.MoveBehaviour;
+
 import java.util.Random;
 
 import javax.swing.JFrame;
@@ -12,41 +17,108 @@ import factories.BehaviourFactory;
 
 public abstract class Unit
 {
-    public int direction;
-    public int size;
-    public float heading;
-    public float x;
-    public float y;
-    public float velocity;
-    public boolean gotShot;
-    public int score;
+	
+	protected double x;
+	protected double y;
+	protected double deltax;
+	protected double deltay;
+	protected double width;
+	protected double height;
+	protected BufferedImage image;
+	
+	public int score;
 
-    protected JFrame window;
-    public static Random rnd = new Random();
+//    public static Random rnd = new Random();
     private MoveContainer moveContainer;
-    private DrawContainer drawContainer;
     private BehaviourFactory behaviourFactory;
-    private DrawBehaviour drawBehaviour;
+//    private DrawBehaviour drawBehaviour;
     private MoveBehaviour moveBehaviour;
 
-    public Unit(MoveContainer mc, DrawContainer dc, BehaviourFactory bf, JFrame window)
+	
+//	public abstract Unit CreateUnit(MoveContainer mv, BehaviourFactory bf);
+	
+	public Unit(){
+		
+	}
+	
+	
+	
+	
+    
+
+    public Unit(MoveContainer mc, BehaviourFactory bf,double x, double y, double dx, double dy, BufferedImage im)
     {
         moveContainer = mc;
-        drawContainer = dc;
         behaviourFactory = bf;
-        this.window = window;
+        this.x = x;
+		this.y = y;
+		this.deltax = dx;
+		this.deltay = dy;
+		this.image = im;
        
         moveBehaviour = bf.CreateMoveBehaviour(this);
-        drawBehaviour = bf.CreateDrawBehaviour(this);
+//        drawBehaviour = bf.CreateDrawBehaviour(this);
         moveContainer.Add(moveBehaviour);
-        drawContainer.Add(drawBehaviour);
 
-        this.window = window;
     }
+    
+    public void die(){
+		
+	}
 
-    public Unit() { }
 
-    public abstract Unit CreateInstance(MoveContainer mc, DrawContainer dc, BehaviourFactory bf, JFrame window);
+    public abstract Unit CreateInstance(MoveContainer mc, BehaviourFactory bf,double x, double y, double dx, double dy, BufferedImage im);
 
+    public double getX() {
+		return x;
+	}
+	
+	public double getY() {
+		return y;
+	}
+	
+	public double getWidth() {
+		return width;
+	}
+	
+	public double getHeight() {
+		return height;
+	}
+	
+	public BufferedImage getImage() {
+		return image;
+	}
+	
+	public void setX(double newX) {
+		this.x = newX;
+	}
+
+	public void setY(double newY) {
+		this.y = newY;
+	}
+	
+	public void setWidth(double newWidth) {
+		this.width = newWidth;
+	}
+
+	public void setHeight(double newHeight) {
+		this.height = newHeight;
+	}
+	
+	public double getDeltax() {
+		return deltax;
+	}
+
+	public void setDeltax(double deltax) {
+		this.deltax = deltax;
+	}
+
+	public double getDeltay() {
+		return deltay;
+	}
+
+	public void setDeltay(double deltay) {
+		this.deltay = deltay;
+	}
 
 }

@@ -22,11 +22,11 @@ public class MoveContainer {
         }
     }
 
-    public void MoveUnits(float deltaTime)
+    public void MoveUnits(double delta)
     {
         for (MoveBehaviour behavior : behaviours)
         {
-            behavior.Behave(deltaTime);
+            behavior.Behave(delta);
         }
     }
 }
