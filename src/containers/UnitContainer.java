@@ -10,7 +10,16 @@ import models.Unit;
 
 public class UnitContainer
 {
-
+	private static UnitContainer instance;
+	public static UnitContainer getInstance(){
+		if(instance == null){
+			instance = new UnitContainer();
+		}
+		return instance;
+	}
+	private UnitContainer(){
+		
+	}
     private List<Unit> _units;
     public List<Unit> getUnits()
         {
@@ -26,6 +35,10 @@ public class UnitContainer
     public void AddUnit(Unit unit)
     {
     	getUnits().add(unit);
+    }
+    
+    public void removeUnit(Unit unit){
+    	getUnits().remove(unit);
     }
 
     public void ClearDestroyedUnits()

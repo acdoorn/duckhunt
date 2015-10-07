@@ -34,9 +34,11 @@ public class MoveContainer {
 
     public void moveUnits(double delta)
     {
-        for (MoveBehaviour behavior : behaviours)
-        {
-            behavior.behave(delta);
-        }
+    	if(behaviours.size() != 0){
+	        for (MoveBehaviour behavior : behaviours)
+	        {
+	            behavior.behave(delta);
+	        }
+    	}
     }
 }

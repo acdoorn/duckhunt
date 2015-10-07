@@ -3,6 +3,7 @@ package models;
 
 import behaviours.MoveBehaviour;
 import containers.MoveContainer;
+import containers.UnitContainer;
 import factories.BehaviourFactory;
 
 public abstract class Unit
@@ -51,7 +52,10 @@ public abstract class Unit
     }
     
     public void die(){
-		moveContainer.remove(moveBehaviour);
+		
+		UnitContainer.getInstance().removeUnit(this);
+		MoveContainer.getInstance().remove(moveBehaviour);
+		
 	}
     
     public boolean isBird(){

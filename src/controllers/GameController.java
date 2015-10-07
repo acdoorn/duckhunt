@@ -25,7 +25,7 @@ public class GameController extends JFrame {
 
 	public GameController() {
 		initUI();
-		this.unitContainer = new UnitContainer();
+		this.unitContainer = UnitContainer.getInstance();
 		this.inputContainer = new InputContainer();
 		Bird.register();
 		Bullet.register();
