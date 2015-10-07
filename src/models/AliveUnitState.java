@@ -13,10 +13,12 @@ public class AliveUnitState extends BaseUnitState
 
     public int onClick(Unit unit, Point point)
     {
+    	System.out.println("HIT ALIVE STATE");
         if (unit.isHit(point))
         {
+        	System.out.println("HIT UNIT");
             LevelFactory.getInstance().getCurrentLevel().Kills++;
-            unit.state = new DeadUnitState(unit);
+            unit.setState(new DeadUnitState(unit));
             return 1;
         }
         return 0;

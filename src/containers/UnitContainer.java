@@ -85,7 +85,13 @@ public class UnitContainer
     }
 
 	public int HandleClick(Point point) {
-		// TODO Auto-generated method stub
-		return 0;
+		int value = 0;
+        for (Unit unit : getUnits())
+        {
+    		System.out.println(unit.getState().toString()+ ", " +point.toString());
+            value = unit.getState().onClick(unit, point);
+        }
+        return value;
+        
 	}
 }

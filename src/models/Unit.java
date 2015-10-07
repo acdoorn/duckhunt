@@ -48,6 +48,7 @@ public abstract class Unit
 		this.y = y;
 		this.deltax = dx;
 		this.deltay = dy;
+		this.state = new AliveUnitState();
        
         moveBehaviour = bf.createMoveBehaviour(this);
 

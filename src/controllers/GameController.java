@@ -120,6 +120,7 @@ public class GameController extends JFrame {
            {
                unitContainer.AddUnit(newUnit);
            }
+           inputContainer.HandleInputs(this);
 	      
 	   }
 	   
