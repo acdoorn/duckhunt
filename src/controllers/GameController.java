@@ -10,7 +10,7 @@ import containers.UnitContainer;
 public class GameController extends JFrame {
 	private boolean gameRunning = true;
 	private int lastFpsTime;
-	private JPanel mainPanel;
+	private MainPanel mainPanel;
 	private UnitContainer unitContainer;
 
 	public GameController() {
@@ -27,6 +27,7 @@ public class GameController extends JFrame {
 		return unitContainer;
 	}
 	
+	
 	public void startGame(){
 	   
 	      Thread loop = new Thread()
@@ -40,7 +41,7 @@ public class GameController extends JFrame {
 	   
 	}
 	
-	   public void gameLoop()
+	   private void gameLoop()
 	   {
 	      long lastLoopTime = System.nanoTime();
 	      final int TARGET_FPS = 60;
@@ -83,7 +84,7 @@ public class GameController extends JFrame {
 	   }
 	   
 	   private void render(){
-		   
+		   mainPanel.UpdateUnitViews(unitContainer.getUnits());
 		   mainPanel.repaint();
 	   }
 
