@@ -2,10 +2,13 @@ package controllers;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import views.MainFrame;
-import views.MainPanel;
+import containers.InputContainer;
 import containers.MoveContainer;
 import containers.UnitContainer;
+import factories.LevelFactory;
+import models.Unit;
+import views.MainFrame;
+import views.MainPanel;
 
 public class GameController extends JFrame {
 	private boolean gameRunning = true;
@@ -13,11 +16,14 @@ public class GameController extends JFrame {
 	private MainPanel mainPanel;
 	private MainFrame mainFrame;
 	private UnitContainer unitContainer;
+	private InputContainer inputContainer;
 	private double delta;
+    public int currentScore;
 
 	public GameController() {
 		initUI();
 		this.unitContainer = new UnitContainer();
+		this.inputContainer = new InputContainer();
 	}
 	
 	private void initUI() {
@@ -48,7 +54,8 @@ public class GameController extends JFrame {
 	      long lastLoopTime = System.nanoTime();
 	      final int TARGET_FPS = 60;
 	      final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;   
-
+	      currentScore = 0;
+          LevelFactory.getInstance().NewGame(this);
 
 	      while (gameRunning)
 	      {
@@ -83,6 +90,19 @@ public class GameController extends JFrame {
 	   {
 		   // updates times delta, so we have no problems with fps/gameupdates
 		   MoveContainer.getInstance().moveUnits(delta);
+		   unitContainer.ClearDestroyedUnits();
+
+           currentScore += inputContainer.getEarnedScore();
+
+           LevelFactory.getInstance().getCurrentLevel().Update(this);
+
+           unitContainer.UpdateAllUnits(this);
+
+           Unit newUnit = LevelFactory.getInstance().getCurrentLevel().TryCreateUnit(this);
+           if (newUnit != null)
+           {
+               unitContainer.AddUnit(newUnit);
+           }
 	      
 	   }
 	   

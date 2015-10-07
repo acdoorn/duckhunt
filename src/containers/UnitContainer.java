@@ -1,11 +1,12 @@
 package containers;
 
 
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
-import models.Unit;
 import controllers.GameController;
+import models.Unit;
 
 public class UnitContainer
 {
@@ -69,4 +70,9 @@ public class UnitContainer
             //TODO
         }
     }
+
+	public int HandleClick(Point point) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

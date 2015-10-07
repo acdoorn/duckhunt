@@ -27,6 +27,7 @@ public class GeneratedLevel extends BaseLevelState
 
     public GeneratedLevel(int level, String[] allowedUnits, int maxLivingUnits, int maxSpawns, double spawnDelay, int maxShots)
     {
+    	System.out.println("generating level: " + level);
         _level = level;
         _allowedUnits = allowedUnits;
         _maxLivingUnits = maxLivingUnits;

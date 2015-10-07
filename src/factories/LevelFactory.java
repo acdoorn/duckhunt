@@ -2,10 +2,10 @@ package factories;
 
 import java.util.HashMap;
 
+import controllers.GameController;
 import levels.BaseLevelState;
 import levels.GeneratedLevel;
 import levels.ILevel;
-import controllers.GameController;
 
 public class LevelFactory {
 	private static LevelFactory instance;
@@ -111,5 +111,14 @@ public class LevelFactory {
 
         return result;
     }
+
+	public ILevel getCurrentLevel() {
+		return currentLevel;
+	}
+
+	public void NewGame(GameController game) {
+        NextLevel(game, 0);
+		
+	}
 
 }
