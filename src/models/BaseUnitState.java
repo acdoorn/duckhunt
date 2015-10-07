@@ -20,7 +20,5 @@ public abstract class BaseUnitState
 
 
     
-    protected void die(){
-		moveContainer.remove(moveBehaviour);
-	}
+
 }

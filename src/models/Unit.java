@@ -59,6 +59,10 @@ public abstract class Unit
         return _state.onClick(this, point);
     }
     
+    public void die(){
+		moveContainer.remove(moveBehaviour);
+	}
+    
     public boolean isHit(Point point)
     {
         return (point.x > x &&
