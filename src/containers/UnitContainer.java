@@ -11,7 +11,7 @@ public class UnitContainer
 {
 
     private List<Unit> _units;
-    private List<Unit> getUnits()
+    public List<Unit> getUnits()
         {
             if (_units == null)
             {
@@ -51,10 +51,7 @@ public class UnitContainer
 
     public void UpdateAllUnits(GameController game)
     {
-        for (Unit unit : getUnits())
-        {
-            //TODO Update
-        }
+        // not needed i believe.
     }
 
     public void DrawAllUnits(GameController game)

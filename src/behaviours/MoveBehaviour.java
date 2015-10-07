@@ -11,12 +11,12 @@ public class MoveBehaviour implements Behaviour {
         this.unit = unit;
     }
 
-    public void Behave(double delta)
+    public void behave(double delta)
     {
     	unit.setX(unit.getX() + unit.getDeltax()*delta);
     	unit.setY(unit.getY() + unit.getDeltay()*delta);
-    	
-    	if(unit.getX() < -100 || unit.getX() > 1800 || unit.getY() < -100 || unit.getY() > 1000){
+    	// TODO fix these hardcoded numbers to dynamical numbers.
+    	if(unit.getX() < -100 || unit.getX() > 1800 || unit.getY() < -100 || unit.getY() > 1300){
     		unit.die();
     	}
     	
