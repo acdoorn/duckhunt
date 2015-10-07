@@ -51,13 +51,13 @@ public class LevelFactory {
 	
 	private String[] GetAllowedUnits(int level)
     {
-        if (level % 3 == 0) // Elk derde level, beide units
-            return new String[] { "chicken", "bunny" };
-        if (level % 2 == 1) // Elk oneven level dat geen derde is, alleen chickens
-            return new String[] { "chicken" };
+        if (level % 3 == 0) // Elk derde level, alleen bluebird units
+            return new String[] { "bluebird" };
+        if (level % 2 == 1) // Elk oneven level dat geen derde is, alle units
+            return new String[] { "bluebird", "redbird", "greenbird" };
         
-        // anders alleen bunnys
-        return new String[] { "bunny" };
+        // anders alleen bluebird
+        return new String[] { "redbird" };
     }
 
     /// <summary>
