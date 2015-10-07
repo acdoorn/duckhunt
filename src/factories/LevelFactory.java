@@ -5,12 +5,11 @@ import java.util.HashMap;
 import controllers.GameController;
 import levels.BaseLevelState;
 import levels.GeneratedLevel;
-import levels.ILevel;
 
 public class LevelFactory {
 	private static LevelFactory instance;
 	private HashMap<Integer, BaseLevelState> levelMap = new HashMap<Integer, BaseLevelState>();
-	public ILevel currentLevel;
+	public GeneratedLevel currentLevel;
 
     private LevelFactory() {}
 
@@ -34,7 +33,7 @@ public class LevelFactory {
         this.currentLevel = CreateLevel(currentLevel + 1);
     }
     
-    private ILevel CreateLevel(int level)
+    private GeneratedLevel CreateLevel(int level)
     {
         return new GeneratedLevel(level, 
             GetAllowedUnits(level), 
@@ -56,7 +55,7 @@ public class LevelFactory {
         if (level % 2 == 1) // Elk oneven level dat geen derde is, alle units
             return new String[] { "bluebird", "redbird", "greenbird" };
         
-        // anders alleen bluebird
+        // anders alleen redbird
         return new String[] { "redbird" };
     }
 
@@ -112,7 +111,7 @@ public class LevelFactory {
         return result;
     }
 
-	public ILevel getCurrentLevel() {
+	public GeneratedLevel getCurrentLevel() {
 		return currentLevel;
 	}
 

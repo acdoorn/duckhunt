@@ -5,35 +5,35 @@ import factories.LevelFactory;
 
 public class GeneratedLevel extends BaseLevelState
 {
-    public int Level; //{ get { return _level; } }
+//    public int Level; //{ get { return _level; } }
 
-    protected String[] AllowedUnits;// { get { return _allowedUnits; } }
-    protected int MaxUnits; //{ get { return _maxLivingUnits; } }
-    protected int MaxSpawns; //{ get { return _maxSpawns; } }
-    protected double SpawnDelay; //{ get { return _spawnDelay; } }
-    protected double TimeBeforeStart;// { get { return 2.5; } }
+//    protected String[] AllowedUnits;// { get { return _allowedUnits; } }
+//    protected int MaxUnits; //{ get { return _maxLivingUnits; } }
+//    protected int MaxSpawns; //{ get { return _maxSpawns; } }
+//    protected double SpawnDelay; //{ get { return _spawnDelay; } }
+//    protected double TimeBeforeStart;// { get { return 2.5; } }
 
     public int getShotsLeft()
     {
         return _maxShots - _totalClicks;
     }
 
-    protected int _level;
-    protected String[] _allowedUnits;
-    protected int _maxLivingUnits;
-    protected int _maxSpawns;
+//    protected int _level;
+//    protected String[] _allowedUnits;
+//    protected int _maxLivingUnits;
+//    protected int _maxSpawns;
     protected int _maxShots;
-    protected double _spawnDelay;
+//    protected double _spawnDelay;
 
     public GeneratedLevel(int level, String[] allowedUnits, int maxLivingUnits, int maxSpawns, double spawnDelay, int maxShots)
     {
     	System.out.println("generating level: " + level);
-        _level = level;
-        _allowedUnits = allowedUnits;
-        _maxLivingUnits = maxLivingUnits;
-        _maxSpawns = maxSpawns;
+        Level = level;
+        AllowedUnits = allowedUnits;
+        MaxUnits = maxLivingUnits;
+        MaxSpawns = maxSpawns;
         _maxShots = maxShots;
-        _spawnDelay = spawnDelay;
+        SpawnDelay = spawnDelay;
     }
 
 	@Override
@@ -55,7 +55,7 @@ public class GeneratedLevel extends BaseLevelState
         }
         // Minimaal 75% van de Units dood, level gehaald
         else if (GotMinKills())
-            LevelFactory.getInstance().NextLevel(game, _level);
+            LevelFactory.getInstance().NextLevel(game, Level);
         else
             LevelFactory.getInstance().GameOver(game);
     }
@@ -67,9 +67,9 @@ public class GeneratedLevel extends BaseLevelState
     /// <returns>true als het level gehaald is</returns>
     protected boolean GotMinKills()
     {
-        int misses = _maxSpawns - Kills;
+        int misses = MaxSpawns - Kills;
 
         return (misses <= 1) || 
-            (misses <= _maxSpawns * 0.25);
+            (misses <= MaxSpawns * 0.25);
     }
 }

@@ -47,7 +47,7 @@ public class MainPanel extends JPanel {
     public void UpdateUnitViews(List<Unit> units){
     	for(Unit u : units){
     		if(!views.containsKey(u)){
-    			views.put(u, new UnitView(u));
+    			views.put(u, new UnitView(u, this));
     		}
     	}
     }

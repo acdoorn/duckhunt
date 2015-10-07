@@ -2,10 +2,9 @@ package levels;
 
 import java.util.Random;
 
-import models.Bird;
-import models.Unit;
 import controllers.GameController;
 import factories.UnitFactory;
+import models.Unit;
 
 public abstract class BaseLevelState implements ILevel {
 	private GameController gameController;
@@ -54,7 +53,7 @@ public abstract class BaseLevelState implements ILevel {
     public Unit TryCreateUnit(GameController game)
     {
         // Spawn niks als het level nog niet begonnen is of als het maximale aantal units gespawned is. 
-        if (!_hasStarted || _totalSpawns >= MaxSpawns)
+        if (/*!_hasStarted ||*/ _totalSpawns >= MaxSpawns)
             return null;
 
         // Geen units op het veld, negeer delay
@@ -66,7 +65,7 @@ public abstract class BaseLevelState implements ILevel {
         {
 //            _lastSpawn = game.getTime();
             _totalSpawns++;
-            return UnitFactory.getInstance().createUnit(AllowedUnits[rnd.nextInt(AllowedUnits.length)], 20, 20, 5, 5, Bird.color.blue);
+            return UnitFactory.getInstance().createUnit(AllowedUnits[rnd.nextInt(AllowedUnits.length)], 20, 20, 5, 5);
 //            return UnitFactory<Unit>.Create(AllowedUnits[rnd.nextInt(AllowedUnits.length)]);
             //return UnitFactory.createRandomUnit(game, AllowedUnits);
         }
@@ -119,7 +118,6 @@ public abstract class BaseLevelState implements ILevel {
 //    /// <returns>true als het level nog bezig is.</returns>
 //    protected virtual bool LevelIsOngoing()
 //    {
-//        return _hasStarted && !_hasEnded;
 //    }
 //
 //    protected virtual void EndLevel(IGame game)

@@ -9,7 +9,6 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 import models.Bird;
-import models.Bullet;
 import models.Unit;
 
 public class UnitView extends JPanel{
@@ -18,13 +17,20 @@ public class UnitView extends JPanel{
 	private Unit unit;
 	private BufferedImage image;
 	
-	public UnitView(Unit unit){
-		System.out.println("got the Unit Constructor here....");
+	public UnitView(Unit unit, MainPanel mp){
+		this.unit = unit;
+		if(unit.isBird()){
+			createBirdView();
+		} else {
+			createBulletView();
+		}
+		this.updateUI();
+		mp.add(this);
 	}
 	
-	public UnitView(Bird bird){
-		this.unit = bird;
-		switch(bird.getColor()){
+	public void createBirdView(){
+		Bird b = (Bird) unit;
+		switch(b.getColor()){
 		case green: loadImage("./src/images/greenbird.png");
 			break;
 		case blue: loadImage("./src/images/bluebird.png");
@@ -37,8 +43,8 @@ public class UnitView extends JPanel{
 		}
 	}
 	
-	public UnitView(Bullet bullet){
-		this.unit = bullet;
+	public void createBulletView(){
+		// TODO createBulletView
 	}
 	
 	public void update(Graphics g){

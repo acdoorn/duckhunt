@@ -6,6 +6,8 @@ import containers.InputContainer;
 import containers.MoveContainer;
 import containers.UnitContainer;
 import factories.LevelFactory;
+import models.Bird;
+import models.Bullet;
 import models.Unit;
 import views.MainFrame;
 import views.MainPanel;
@@ -24,6 +26,8 @@ public class GameController extends JFrame {
 		initUI();
 		this.unitContainer = new UnitContainer();
 		this.inputContainer = new InputContainer();
+		Bird.register();
+		Bullet.register();
 	}
 	
 	private void initUI() {
@@ -37,7 +41,6 @@ public class GameController extends JFrame {
 	
 	
 	public void startGame(){
-	   
 	      Thread loop = new Thread()
 	      {
 	         public void run()

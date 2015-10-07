@@ -1,6 +1,4 @@
 package models;
-import java.awt.Color;
-
 import containers.MoveContainer;
 import factories.BehaviourFactory;
 import factories.UnitFactory;
@@ -38,8 +36,21 @@ public class Bird extends Unit{
 		
 	}
 	
+	@Override
+	public boolean isBird(){
+		return true;
+	}
+	
 	public static void register(){
-		UnitFactory.getInstance().RegisterUnit("bird", new Bird());
+		Bird greenbird = new Bird();
+		greenbird.c = color.green;
+		UnitFactory.getInstance().RegisterUnit("greenbird", greenbird);
+		Bird redbird = new Bird();
+		greenbird.c = color.red;
+		UnitFactory.getInstance().RegisterUnit("redbird", redbird);
+		Bird bluebird = new Bird();
+		greenbird.c = color.green;
+		UnitFactory.getInstance().RegisterUnit("bluebird", bluebird);
 	}
 
 //	public void isClicked(){
@@ -47,8 +58,8 @@ public class Bird extends Unit{
 //	}
 
 	@Override
-	public Unit createInstance(MoveContainer mc, BehaviourFactory bf, double x, double y, double dx, double dy, color color) {
-		Bird b = new Bird(mc,  bf,  x,  y,  dx,  dy, color);
+	public Unit createInstance(MoveContainer mc, BehaviourFactory bf, double x, double y, double dx, double dy) {
+		Bird b = new Bird(mc,  bf,  x,  y,  dx,  dy, this.c);
 		return b;
 	}
 	

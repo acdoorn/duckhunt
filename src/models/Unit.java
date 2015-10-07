@@ -1,8 +1,6 @@
 package models;
 
 
-import models.Bird.color;
-import behaviours.DrawBehaviour;
 import behaviours.MoveBehaviour;
 import containers.MoveContainer;
 import factories.BehaviourFactory;
@@ -22,7 +20,7 @@ public abstract class Unit
 //    public static Random rnd = new Random();
     private MoveContainer moveContainer;
     private BehaviourFactory behaviourFactory;
-    private DrawBehaviour drawBehaviour;
+
     private MoveBehaviour moveBehaviour;
 
 	
@@ -47,7 +45,7 @@ public abstract class Unit
 		this.deltay = dy;
        
         moveBehaviour = bf.createMoveBehaviour(this);
-        drawBehaviour = bf.createDrawBehaviour(this);
+
         moveContainer.add(moveBehaviour);
 
     }
@@ -56,9 +54,11 @@ public abstract class Unit
 		moveContainer.remove(moveBehaviour);
 	}
     
+    public boolean isBird(){
+    	return false;
+    }
 
-
-    public abstract Unit createInstance(MoveContainer mc, BehaviourFactory bf,double x, double y, double dx, double dy, color color);
+    public abstract Unit createInstance(MoveContainer mc, BehaviourFactory bf,double x, double y, double dx, double dy);
 
     public double getX() {
 		return x;
