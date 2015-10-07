@@ -88,7 +88,6 @@ public class UnitContainer
 		int value = 0;
         for (Unit unit : getUnits())
         {
-    		System.out.println(unit.getState().toString()+ ", " +point.toString());
             value = unit.getState().onClick(unit, point);
         }
         return value;

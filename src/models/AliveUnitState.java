@@ -19,6 +19,7 @@ public class AliveUnitState extends BaseUnitState
         	System.out.println("HIT UNIT");
             LevelFactory.getInstance().getCurrentLevel().Kills++;
             unit.setState(new DeadUnitState(unit));
+//            unit.die();
             return 1;
         }
         return 0;
