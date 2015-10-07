@@ -10,7 +10,7 @@ public class DrawBehaviour implements Behaviour {
         this.unit = unit;
     }
 
-    public void Behave(float deltaTime)
+    public void Behave(double deltaTime)
     {
 //        if (unit.dispatcher.CheckAccess())
 //        {

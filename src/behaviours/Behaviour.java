@@ -3,5 +3,5 @@ package behaviours;
 
 interface Behaviour
 {
-    void Behave(float deltaTime);
+    void Behave(double deltaTime);
 }
