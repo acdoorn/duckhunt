@@ -1,5 +1,8 @@
 package models;
-import java.awt.image.BufferedImage;
+import java.awt.Color;
+
+import containers.MoveContainer;
+import factories.BehaviourFactory;
 
 public class Bird extends Unit{
 	
@@ -13,8 +16,8 @@ public class Bird extends Unit{
 	
 	public enum color {red,green,blue};
 	
-	public Bird(double xpos, double ypos, double dx, double dy, color c, BufferedImage image){
-		super(xpos, ypos, dx, dy, image);
+	public Bird(MoveContainer mc, BehaviourFactory bf,double x, double y, double dx, double dy, color c) {
+		super( mc,  bf, x,  y,  dx,  dy);
 //		this.x = xpos;
 //		this.y = ypos;
 		this.c = c;
@@ -24,9 +27,24 @@ public class Bird extends Unit{
 	public color getColor() {
 		return c;
 	}
-
-	public void isClicked(){
+	
+	@Override
+	public void die(){
 		
+	}
+	
+	public static void register(){
+		// register bird at the unitfactory
+	}
+
+//	public void isClicked(){
+//		
+//	}
+
+	@Override
+	public Unit createInstance(MoveContainer mc, BehaviourFactory bf, double x, double y, double dx, double dy, color color) {
+		Bird b = new Bird(mc,  bf,  x,  y,  dx,  dy, color);
+		return b;
 	}
 	
 	

@@ -2,6 +2,7 @@ package controllers;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import containers.MoveContainer;
 import views.MainFrame;
 import views.MainPanel;
 
@@ -70,11 +71,12 @@ public class GameController extends JFrame {
 	   private void doGameUpdates(double delta)
 	   {
 		   // updates times delta, so we have no problems with fps/gameupdates
-		   
+		   MoveContainer.getInstance().moveUnits(delta);
 	      
 	   }
 	   
 	   private void render(){
+		   
 		   mainPanel.repaint();
 	   }
 

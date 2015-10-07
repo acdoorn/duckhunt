@@ -1,19 +1,10 @@
 package models;
 
 
-import java.awt.image.BufferedImage;
-
 import behaviours.MoveBehaviour;
-
-import java.util.Random;
-
-import javax.swing.JFrame;
-
-import behaviours.DrawBehaviour;
-import behaviours.MoveBehaviour;
-import containers.DrawContainer;
 import containers.MoveContainer;
 import factories.BehaviourFactory;
+import models.Bird.color;
 
 public abstract class Unit
 {
@@ -24,7 +15,6 @@ public abstract class Unit
 	protected double deltay;
 	protected double width;
 	protected double height;
-	protected BufferedImage image;
 	
 	public int score;
 
@@ -46,7 +36,7 @@ public abstract class Unit
 	
     
 
-    public Unit(MoveContainer mc, BehaviourFactory bf,double x, double y, double dx, double dy, BufferedImage im)
+    public Unit(MoveContainer mc, BehaviourFactory bf,double x, double y, double dx, double dy)
     {
         moveContainer = mc;
         behaviourFactory = bf;
@@ -54,20 +44,20 @@ public abstract class Unit
 		this.y = y;
 		this.deltax = dx;
 		this.deltay = dy;
-		this.image = im;
        
-        moveBehaviour = bf.CreateMoveBehaviour(this);
+        moveBehaviour = bf.createMoveBehaviour(this);
 //        drawBehaviour = bf.CreateDrawBehaviour(this);
-        moveContainer.Add(moveBehaviour);
+        moveContainer.add(moveBehaviour);
 
     }
     
     public void die(){
-		
+		moveContainer.remove(moveBehaviour);
 	}
+    
 
 
-    public abstract Unit CreateInstance(MoveContainer mc, BehaviourFactory bf,double x, double y, double dx, double dy, BufferedImage im);
+    public abstract Unit createInstance(MoveContainer mc, BehaviourFactory bf,double x, double y, double dx, double dy, color color);
 
     public double getX() {
 		return x;
@@ -84,10 +74,7 @@ public abstract class Unit
 	public double getHeight() {
 		return height;
 	}
-	
-	public BufferedImage getImage() {
-		return image;
-	}
+
 	
 	public void setX(double newX) {
 		this.x = newX;

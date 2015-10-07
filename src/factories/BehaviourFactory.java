@@ -16,7 +16,7 @@ public class BehaviourFactory {
 		return instance;
 	}
 	
-	 public MoveBehaviour CreateMoveBehaviour(Unit unit)
+	 public MoveBehaviour createMoveBehaviour(Unit unit)
      {
          return new MoveBehaviour(unit);
      }

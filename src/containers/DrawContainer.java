@@ -26,7 +26,7 @@ public class DrawContainer extends Container{
     {
         for(DrawBehaviour behaviour : behaviours)
         {
-            behaviour.Behave(deltaTime);
+            behaviour.behave(deltaTime);
         }
     }
 }

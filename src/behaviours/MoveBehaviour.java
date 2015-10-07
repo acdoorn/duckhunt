@@ -11,7 +11,7 @@ public class MoveBehaviour implements Behaviour {
         this.unit = unit;
     }
 
-    public void Behave(double delta)
+    public void behave(double delta)
     {
     	unit.setX(unit.getX() + unit.getDeltax()*delta);
     	unit.setY(unit.getY() + unit.getDeltay()*delta);

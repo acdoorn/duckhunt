@@ -6,15 +6,17 @@ import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 public class MainPanel extends JPanel {
     private BufferedImage background;
+    private ArrayList<UnitView> views;
 
     public MainPanel() {
-
+    	views = new ArrayList<UnitView>();
         initBoard();
     }
 
@@ -42,11 +44,16 @@ public class MainPanel extends JPanel {
         
 
         drawImage(g, background);
+        for(UnitView v : views){
+        	v.update(g);
+        }
+        Toolkit.getDefaultToolkit().sync();
+        
     }
 
     private void drawImage(Graphics g, BufferedImage image) {
 
         g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
-        Toolkit.getDefaultToolkit().sync();
+        
     }
 }

@@ -1,20 +1,30 @@
 package containers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import behaviours.MoveBehaviour;
 
 public class MoveContainer {
-	
+	private static MoveContainer mv;
+	public static MoveContainer getInstance(){
+		if(mv == null){
+			mv = new MoveContainer();
+		}
+		return mv;
+	}
 
+	private MoveContainer(){
+		behaviours = new ArrayList<MoveBehaviour>();
+	}
 	public List<MoveBehaviour> behaviours;
 	
-	public void Add(MoveBehaviour _moveBehaviour)
+	public void add(MoveBehaviour _moveBehaviour)
     {
         behaviours.add(_moveBehaviour);
     }
 
-    public void Remove(MoveBehaviour _moveBehaviour)
+    public void remove(MoveBehaviour _moveBehaviour)
     {
         if (behaviours.contains(_moveBehaviour))
         {
@@ -22,11 +32,11 @@ public class MoveContainer {
         }
     }
 
-    public void MoveUnits(double delta)
+    public void moveUnits(double delta)
     {
         for (MoveBehaviour behavior : behaviours)
         {
-            behavior.Behave(delta);
+            behavior.behave(delta);
         }
     }
 }
