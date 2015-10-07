@@ -51,7 +51,7 @@ public class UnitView extends JPanel{
 	public void update(Graphics g){
 		if(image != null){
 			System.out.println("DRAWING AT: " + unit.getX()+", "+unit.getY());
-			g.drawImage(image,(int)unit.getX(), (int)unit.getY(), (int)unit.getWidth(), (int)unit.getHeight(), this);
+			g.drawImage(image,(int)unit.getX(), (int)unit.getY(), 100 , 70 , this);
 		}
 	}
 	

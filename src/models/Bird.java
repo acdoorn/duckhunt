@@ -9,8 +9,8 @@ public class Bird extends Unit{
 //	private int y;
 	private color c;
 //	private BufferedImage image;
-//	private int width = 100;
-//	private int height = 70;
+	private int width = 100;
+	private int height = 70;
 //	
 	
 	public enum color {red,green,blue};
