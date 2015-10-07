@@ -55,12 +55,14 @@ public class UnitView extends JPanel{
 	}
 	
 	private void loadImage(String location){
-		try {
-			 image = ImageIO.read(new File(location));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			image = null;
+		if(image == null){
+			try {
+				 image = ImageIO.read(new File(location));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				image = null;
+			}
 		}
 	}
 
