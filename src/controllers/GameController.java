@@ -71,7 +71,8 @@ public class GameController extends JFrame {
 	         // update the frame counter
 	         lastFpsTime += updateLength;
 	         
-	         
+
+			   mainPanel.UpdateUnitViews(unitContainer.getUnits());
 	         // update the game logic
 	         doGameUpdates(delta);
 	         
@@ -121,7 +122,6 @@ public class GameController extends JFrame {
 	   }
 	   
 	   private void render(){
-		   mainPanel.UpdateUnitViews(unitContainer.getUnits());
 		   mainPanel.repaint();
 	   }
 

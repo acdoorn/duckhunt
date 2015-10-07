@@ -37,7 +37,7 @@ public class MainPanel extends JPanel {
     }
 
     private void initBoard() {
-    	this.background = loadImage("./src/images/background.png");
+//    	this.background = loadImage("./src/images/background.png");
     	
         setPreferredSize(new Dimension(1600, 1200));
         setDoubleBuffered(true);
