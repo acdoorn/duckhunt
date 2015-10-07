@@ -16,6 +16,8 @@ public abstract class Unit
 	protected double deltay;
 	protected double width;
 	protected double height;
+	protected BaseUnitState state;
+	
 	
 	public int score;
 
@@ -69,6 +71,14 @@ public abstract class Unit
             point.x < x+100 &&
             point.y > y &&
             point.y < y+70);
+    }
+    
+    public void setState(BaseUnitState state) {
+    	this.state = state;
+    }
+    
+    public BaseUnitState getState() {
+    	return state;
     }
     
     public boolean isBird(){
