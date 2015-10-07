@@ -82,7 +82,8 @@ public class GameController extends JFrame {
 	            fps = 0;
 	         }
 	         
-	         
+
+			   mainPanel.UpdateUnitViews(unitContainer.getUnits());
 	         // update the game logic
 	         doGameUpdates(delta);
 	         
@@ -132,7 +133,6 @@ public class GameController extends JFrame {
 	   }
 	   
 	   private void render(){
-		   mainPanel.UpdateUnitViews(unitContainer.getUnits());
 		   mainPanel.repaint();
 	   }
 
