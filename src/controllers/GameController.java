@@ -5,19 +5,26 @@ import javax.swing.JPanel;
 import containers.MoveContainer;
 import views.MainFrame;
 import views.MainPanel;
+import containers.UnitContainer;
 
 public class GameController extends JFrame {
 	private boolean gameRunning = true;
 	private int lastFpsTime;
 	private JPanel mainPanel;
+	private UnitContainer unitContainer;
 
 	public GameController() {
 		initUI();
+		this.unitContainer = new UnitContainer();
 	}
 	
 	private void initUI() {
 		mainPanel = new MainPanel();
 		new MainFrame(mainPanel);
+	}
+	
+	public UnitContainer getUnitContainer() {
+		return unitContainer;
 	}
 	
 	public void startGame(){
