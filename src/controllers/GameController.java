@@ -1,14 +1,24 @@
 package controllers;
-import java.awt.EventQueue;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
+import views.MainFrame;
+import views.MainPanel;
 
-
-
-
-public class GameController {
+public class GameController extends JFrame {
 	private boolean gameRunning = true;
 	private int lastFpsTime;
+	private JPanel mainPanel;
 
+	public GameController() {
+		initUI();
+	}
+	
+	private void initUI() {
+		mainPanel = new MainPanel();
+		new MainFrame(mainPanel);
+	}
+	
 	public void startGame(){
 	   
 	      Thread loop = new Thread()
@@ -65,7 +75,7 @@ public class GameController {
 	   }
 	   
 	   private void render(){
-		   // update all the things
+		   mainPanel.repaint();
 	   }
 
 

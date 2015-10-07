@@ -1,37 +1,75 @@
 package models;
 
+
 import java.awt.image.BufferedImage;
 
 import behaviours.MoveBehaviour;
 
-public class Unit {
+import java.util.Random;
+
+import javax.swing.JFrame;
+
+import behaviours.DrawBehaviour;
+import behaviours.MoveBehaviour;
+import containers.DrawContainer;
+import containers.MoveContainer;
+import factories.BehaviourFactory;
+
+public abstract class Unit
+{
+	
 	protected double x;
 	protected double y;
 	protected double deltax;
-	
-
 	protected double deltay;
 	protected double width;
 	protected double height;
 	protected BufferedImage image;
 	
-	private MoveBehaviour moveBehaviour;
+	public int score;
+
+//    public static Random rnd = new Random();
+    private MoveContainer moveContainer;
+    private BehaviourFactory behaviourFactory;
+//    private DrawBehaviour drawBehaviour;
+    private MoveBehaviour moveBehaviour;
+
 	
 //	public abstract Unit CreateUnit(MoveContainer mv, BehaviourFactory bf);
 	
-	public Unit(double x, double y, double dx, double dy, BufferedImage im){
-		this.x = x;
+	public Unit(){
+		
+	}
+	
+	
+	
+	
+    
+
+    public Unit(MoveContainer mc, BehaviourFactory bf,double x, double y, double dx, double dy, BufferedImage im)
+    {
+        moveContainer = mc;
+        behaviourFactory = bf;
+        this.x = x;
 		this.y = y;
 		this.deltax = dx;
 		this.deltay = dy;
 		this.image = im;
-	}
-	
-	public void die(){
+       
+        moveBehaviour = bf.CreateMoveBehaviour(this);
+//        drawBehaviour = bf.CreateDrawBehaviour(this);
+        moveContainer.Add(moveBehaviour);
+
+    }
+    
+    public void die(){
 		
 	}
-	
-	public double getX() {
+
+
+    public abstract Unit CreateInstance(MoveContainer mc, BehaviourFactory bf,double x, double y, double dx, double dy, BufferedImage im);
+
+    public double getX() {
 		return x;
 	}
 	
@@ -82,6 +120,5 @@ public class Unit {
 	public void setDeltay(double deltay) {
 		this.deltay = deltay;
 	}
-	
 
 }
