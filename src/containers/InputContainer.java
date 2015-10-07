@@ -8,7 +8,7 @@ import controllers.GameController;
 
 public class InputContainer
 {
-
+	private static InputContainer instance;
     private List<Point> _clickedPoints;
     private Point _mousePosition;
     
@@ -21,8 +21,15 @@ public class InputContainer
     public int getEarnedScore() {
     	return earnedScore;
     }
+    
+    public static InputContainer getInstance(){
+    	if(instance == null){
+    		instance = new InputContainer();
+    	}
+    	return instance;
+    }
 
-    public InputContainer()
+    private InputContainer()
     {
         _clickedPoints = new ArrayList<Point>();
     }

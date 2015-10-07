@@ -2,6 +2,8 @@ package views;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -12,6 +14,7 @@ import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
+import containers.InputContainer;
 import models.Unit;
 
 public class MainPanel extends JPanel {
@@ -38,7 +41,39 @@ public class MainPanel extends JPanel {
 
     private void initBoard() {
     	this.background = loadImage("./src/images/background.png");
-    	
+    	this.addMouseListener(new MouseListener(){
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				InputContainer.getInstance().AddClick(arg0.getPoint());
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+    		
+    	});
         setPreferredSize(new Dimension(1600, 1200));
         setDoubleBuffered(true);
     }
@@ -77,6 +112,8 @@ public class MainPanel extends JPanel {
         }
         
     }
+    
+    
 
     
     public HashMap<Unit, UnitView> getViews(){
