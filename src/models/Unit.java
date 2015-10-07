@@ -1,6 +1,8 @@
 package models;
 
 
+import java.awt.Point;
+
 import behaviours.MoveBehaviour;
 import containers.MoveContainer;
 import factories.BehaviourFactory;
@@ -50,9 +52,20 @@ public abstract class Unit
 
     }
     
-    public void die(){
-		moveContainer.remove(moveBehaviour);
-	}
+    private BaseUnitState _state;
+    
+    public int onClick(Point point)
+    {
+        return _state.onClick(this, point);
+    }
+    
+    public boolean isHit(Point point)
+    {
+        return (point.x > x &&
+            point.x < x+100 &&
+            point.y > y &&
+            point.y < y+70);
+    }
     
     public boolean isBird(){
     	return false;

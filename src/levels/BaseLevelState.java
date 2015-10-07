@@ -65,7 +65,7 @@ public abstract class BaseLevelState implements ILevel {
         {
 //            _lastSpawn = game.getTime();
             _totalSpawns++;
-            return UnitFactory.getInstance().createUnit(AllowedUnits[rnd.nextInt(AllowedUnits.length)], 20, 20, 1, 1);
+            return UnitFactory.getInstance().createUnit(AllowedUnits[rnd.nextInt(AllowedUnits.length)], rnd.nextInt(1600), rnd.nextInt(900), 1, 0);
 //            return UnitFactory<Unit>.Create(AllowedUnits[rnd.nextInt(AllowedUnits.length)]);
             //return UnitFactory.createRandomUnit(game, AllowedUnits);
         }
