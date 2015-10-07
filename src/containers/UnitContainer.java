@@ -34,7 +34,7 @@ public class UnitContainer
 
     public void ClearAllUnits()
     {
-        for (Unit unit: getUnits())
+        for (Unit unit: _units)
         {
         	//TODO die
         }
@@ -43,7 +43,7 @@ public class UnitContainer
 
     public void CleanupUnits()
     {
-        for (Unit unit : getUnits())
+        for (Unit unit : _units)
         {
             //TODO cleanup
         }
@@ -51,7 +51,7 @@ public class UnitContainer
 
     public void UpdateAllUnits(GameController game)
     {
-        for (Unit unit : getUnits())
+        for (Unit unit : _units)
         {
             //TODO Update
         }
@@ -59,7 +59,7 @@ public class UnitContainer
 
     public void DrawAllUnits(GameController game)
     {
-        for (Unit unit : getUnits())
+        for (Unit unit : _units)
         {
         	//TODO draw
         }
@@ -67,7 +67,7 @@ public class UnitContainer
 
     public void FixedTimePassed(GameController game)
     {
-        for (Unit unit : getUnits())
+        for (Unit unit : _units)
         {
             //TODO
         }
