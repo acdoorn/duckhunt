@@ -68,6 +68,7 @@ public abstract class Unit
         return _state.onClick(this, point);
     }
     
+    
     public boolean isHit(Point point)
     {
         return (point.x > x &&

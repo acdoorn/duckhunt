@@ -104,7 +104,9 @@ public class GameController extends JFrame {
 	   private void doGameUpdates(double delta)
 	   {
 		   // updates times delta, so we have no problems with fps/gameupdates
+		   if(unitContainer.getNumUnits() != 0){
 		   MoveContainer.getInstance().moveUnits(delta);
+		   }
 		   unitContainer.ClearDestroyedUnits();
 
            currentScore += inputContainer.getEarnedScore();
