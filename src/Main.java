@@ -1,6 +1,7 @@
 import javax.swing.JFrame;
 
 import controllers.GameController;
+import views.Application;
 
 public class Main {
 
