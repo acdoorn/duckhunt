@@ -29,6 +29,7 @@ public class GameController extends JFrame {
 		this.inputContainer = InputContainer.getInstance();
 		Bird.register();
 		Bullet.register();
+		LevelFactory.getInstance().NewGame(this);
 		 
 	      currentScore = 0;
 	}
@@ -40,6 +41,10 @@ public class GameController extends JFrame {
 	
 	public UnitContainer getUnitContainer() {
 		return unitContainer;
+	}
+	
+	public void setGameRunning(boolean bool){
+		this.gameRunning = bool;
 	}
 	
 	
@@ -60,7 +65,7 @@ public class GameController extends JFrame {
 	      long lastLoopTime = System.nanoTime();
 	      final int TARGET_FPS = 60;
 	      final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;  
-          LevelFactory.getInstance().NewGame(this);
+          
 
 	      while (gameRunning)
 	      {

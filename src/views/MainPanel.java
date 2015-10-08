@@ -16,9 +16,9 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
+import models.Unit;
 import containers.InputContainer;
 import factories.LevelFactory;
-import models.Unit;
 
 public class MainPanel extends JPanel {
     private BufferedImage background;
@@ -99,18 +99,20 @@ public class MainPanel extends JPanel {
     		for(Iterator<UnitView> iterator = unitViews.iterator(); iterator.hasNext();){
     			UnitView v = iterator.next();
     			if(v.getUnit().isDead()){ //if(v.getUnit().getState() == died){
-    				this.remove(v);
+    				//this.remove(v);
+    				//UnitContainer.getInstance().removeUnit(v.getUnit());
     				iterator.remove();
+    				
     			}else {
 	    			if(v.getUnit().equals(u)){
 	    				existing = true;
 	    			}
     			}
     		}
-    		if(!existing){
+    		if(!existing && u != null){
     			UnitView uv = new UnitView(u);
     			unitViews.add(uv);
-    			this.add(uv);
+//    			this.add(uv);
     			
     		}
     	}
@@ -137,7 +139,7 @@ public class MainPanel extends JPanel {
     
 
     
-    public HashMap<Unit, UnitView> getViews(){
-    	return views;
-    }
+//    public HashMap<Unit, UnitView> getViews(){
+//    	return views;
+//    }
 }
