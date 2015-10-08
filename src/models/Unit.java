@@ -5,7 +5,6 @@ import java.awt.Point;
 
 import behaviours.MoveBehaviour;
 import containers.MoveContainer;
-import containers.UnitContainer;
 import factories.BehaviourFactory;
 
 public abstract class Unit
@@ -59,10 +58,10 @@ public abstract class Unit
     
 
     public void die(){
-
+    	this.dead = true;
 		MoveContainer.getInstance().remove(moveBehaviour);
-		UnitContainer.getInstance().removeUnit(this);
-		this.dead = true;
+		//UnitContainer.getInstance().removeUnit(this);
+		
 		
 	}
 
