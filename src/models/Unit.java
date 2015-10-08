@@ -58,7 +58,7 @@ public abstract class Unit
     
 
     public void die(){
-
+    	this.dead = true;
 		MoveContainer.getInstance().remove(moveBehaviour);
 //		UnitContainer.getInstance().removeUnit(this);
 		this.dead = true;
