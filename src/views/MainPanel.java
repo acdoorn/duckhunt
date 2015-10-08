@@ -18,7 +18,7 @@ import javax.swing.JTextPane;
 
 import models.Unit;
 import containers.InputContainer;
-import factories.LevelFactory;
+import controllers.GameController;
 
 public class MainPanel extends JPanel {
     private BufferedImage background;
@@ -26,6 +26,7 @@ public class MainPanel extends JPanel {
     private HashMap<Unit, UnitView> views;
     private JTextPane score;
     private int points;
+    private int currentKills = -1;
 
     public MainPanel() {
     	views = new HashMap<Unit, UnitView>();
@@ -116,11 +117,7 @@ public class MainPanel extends JPanel {
     			
     		}
     	}
-    	if(LevelFactory.getInstance().currentLevel != null){
-    		points = LevelFactory.getInstance().currentLevel.Kills;
-    	} else {
-    		points = 0;
-    	}
+    	points = GameController.score;
     	
     }
 

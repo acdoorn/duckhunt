@@ -20,8 +20,9 @@ public class GameController extends JFrame {
 	private UnitContainer unitContainer;
 	private InputContainer inputContainer;
 	private double delta;
-    private int currentScore;
     private int fps;
+    
+    public static int score = 0;
 
 	public GameController() {
 		initUI();
@@ -31,7 +32,6 @@ public class GameController extends JFrame {
 		Bullet.register();
 		LevelFactory.getInstance().NewGame(this);
 		 
-	      currentScore = 0;
 	}
 	
 	private void initUI() {
@@ -42,11 +42,6 @@ public class GameController extends JFrame {
 	public UnitContainer getUnitContainer() {
 		return unitContainer;
 	}
-	
-	public void setGameRunning(boolean bool){
-		this.gameRunning = bool;
-	}
-	
 	
 	public void startGame(){
 	      Thread loop = new Thread()
@@ -130,14 +125,8 @@ public class GameController extends JFrame {
                unitContainer.AddUnit(newUnit);
            }
            inputContainer.HandleInputs(this);
-           if(inputContainer.getEarnedScore() == 1)
-        	   currentScore++;
 
 	      
-	   }
-	   
-	   public int getCurrentScore() {
-		   return currentScore;
 	   }
 	   
 	   public double getDelta() {

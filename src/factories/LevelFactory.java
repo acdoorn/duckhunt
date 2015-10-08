@@ -32,7 +32,7 @@ public class LevelFactory {
     {
     	game.setGameRunning(false);
     	
-    	UnitContainer.getInstance().CleanupUnits();
+    	UnitContainer.getInstance().ClearAllUnits();
         this.currentLevel = CreateLevel(currentLevel + 1);
 
     	game.setGameRunning(true);

@@ -64,14 +64,6 @@ public class UnitContainer
         ClearDestroyedUnits();
     }
 
-    public void CleanupUnits()
-    {
-        for (Unit unit : getUnits())
-        {
-            //TODO cleanup
-        }
-    }
-
     public void UpdateAllUnits(GameController game)
     {
         // not needed i believe.

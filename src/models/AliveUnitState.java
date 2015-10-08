@@ -2,6 +2,7 @@ package models;
 
 import java.awt.Point;
 
+import controllers.GameController;
 import factories.LevelFactory;
 
 public class AliveUnitState extends BaseUnitState
@@ -16,6 +17,7 @@ public class AliveUnitState extends BaseUnitState
         if (unit.isHit(point))
         {
             LevelFactory.getInstance().getCurrentLevel().Kills++;
+            GameController.score++;
             unit.setState(new DeadUnitState(unit));
             unit.die();
             return 1;
