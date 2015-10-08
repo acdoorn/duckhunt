@@ -2,9 +2,9 @@ package factories;
 
 import java.util.HashMap;
 
-import controllers.GameController;
 import levels.BaseLevelState;
 import levels.GeneratedLevel;
+import controllers.GameController;
 
 public class LevelFactory {
 	private static LevelFactory instance;
@@ -30,7 +30,9 @@ public class LevelFactory {
     public void NextLevel(GameController game, int currentLevel)
     {
         game.getUnitContainer().ClearAllUnits();
+        this.currentLevel = null;
         this.currentLevel = CreateLevel(currentLevel + 1);
+        
     }
     
     private GeneratedLevel CreateLevel(int level)

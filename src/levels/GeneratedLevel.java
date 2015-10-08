@@ -5,25 +5,15 @@ import factories.LevelFactory;
 
 public class GeneratedLevel extends BaseLevelState
 {
-//    public int Level; //{ get { return _level; } }
-
-
-
     public int getShotsLeft()
     {
         return _maxShots - _totalClicks;
     }
-
-//    protected int _level;
-//    protected String[] _allowedUnits;
-//    protected int _maxLivingUnits;
-//    protected int _maxSpawns;
     protected int _maxShots;
-//    protected double _spawnDelay;
 
     public GeneratedLevel(int level, String[] allowedUnits, int maxLivingUnits, int maxSpawns, double spawnDelay, int maxShots)
     {
-    	System.out.println("generating level: ");
+    	System.out.println("generating level: " + level + " maxSpawns: " + maxSpawns);
         Level = level;
         AllowedUnits = allowedUnits;
         MaxUnits = maxLivingUnits;
@@ -35,8 +25,9 @@ public class GeneratedLevel extends BaseLevelState
 	@Override
     public void Update(GameController game)
     {
-//		System.out.println(game.getCurrentScore() + " " + MaxSpawns);
+//		System.out.println(Kills + " " + MaxSpawns + " " + MaxUnits);
 		if(Kills == MaxSpawns) {
+			Kills = 0;
 			this.StartNextLevel(game);
 		}
         if (_totalClicks >= _maxShots)

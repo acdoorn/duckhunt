@@ -2,15 +2,15 @@ package controllers;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import containers.InputContainer;
-import containers.MoveContainer;
-import containers.UnitContainer;
-import factories.LevelFactory;
 import models.Bird;
 import models.Bullet;
 import models.Unit;
 import views.MainFrame;
 import views.MainPanel;
+import containers.InputContainer;
+import containers.MoveContainer;
+import containers.UnitContainer;
+import factories.LevelFactory;
 
 public class GameController extends JFrame {
 	private boolean gameRunning = true;
