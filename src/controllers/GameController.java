@@ -124,7 +124,6 @@ public class GameController extends JFrame {
            if(inputContainer.getEarnedScore() == 1)
         	   currentScore++;
 
-		   System.out.println(currentScore + " " + inputContainer.getEarnedScore());
 	      
 	   }
 	   

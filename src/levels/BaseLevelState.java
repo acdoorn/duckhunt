@@ -73,57 +73,7 @@ public abstract class BaseLevelState implements ILevel {
         return null;
     }
 
-    public void Update(GameController game)
-    {
-//        if (!_hasStarted)
-//        {
-//        	if(_startTime)
-//            if (Double.IsNaN(_startTime))
-//                _startTime = game.Time;
-//
-//            if (game.Time - _startTime > TimeBeforeStart)
-//                _hasStarted = true;
-//        }
-//
-//        if (LevelIsOngoing())
-//        {
-//            _totalClicks += game.InputContainer.NumClicks;
-//            _totalHits += game.InputContainer.EarnedScore;
-//            _totalMisses += game.InputContainer.NumMisses;
-//        }
-//
-//        if (LevelIsDone(game))
-//        {
-//            StartNextLevel(game);
-//        }
-    }
 
     protected abstract void StartNextLevel(GameController game);
 
-    /// <summary>
-    /// Controleert of het level helemaal is afgelopen (klaar om een nieuw level te starten).
-    /// </summary>
-    /// <param name="game">Instantie van de game controller</param>
-    /// <returns>true als het level is afgelopen</returns>
-//    protected virtual boolean LevelIsDone(GameController game)
-//    {
-//        // After spawning all units, go to the next level
-//        return (_totalSpawns >= MaxSpawns &&
-//            game.UnitContainer.NumUnits == 0);
-//    }
-//
-//    /// <summary>
-//    /// Controleert of het level nog bezig is. Dit kan false zijn voor alle units weg zijn. 
-//    /// </summary>
-//    /// <returns>true als het level nog bezig is.</returns>
-//    protected virtual bool LevelIsOngoing()
-//    {
-//    }
-//
-//    protected virtual void EndLevel(IGame game)
-//    {
-//        _hasEnded = true;
-//        _totalSpawns = MaxSpawns;
-//        LevelFactory.Instance.EndLevel(game);
-//    };
 }
