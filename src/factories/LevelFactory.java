@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import levels.BaseLevelState;
 import levels.GeneratedLevel;
+import containers.UnitContainer;
 import controllers.GameController;
 
 public class LevelFactory {
@@ -29,9 +30,13 @@ public class LevelFactory {
     
     public void NextLevel(GameController game, int currentLevel)
     {
-        game.getUnitContainer().ClearAllUnits();
+    	game.setGameRunning(false);
+    	
+    	UnitContainer.getInstance().CleanupUnits();
         this.currentLevel = null;
         this.currentLevel = CreateLevel(currentLevel + 1);
+
+    	game.setGameRunning(true);
         
     }
     

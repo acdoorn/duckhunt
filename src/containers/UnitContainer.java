@@ -3,8 +3,10 @@ package containers;
 
 import java.awt.Point;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
+import models.Bird;
 import models.Unit;
 import controllers.GameController;
 
@@ -43,12 +45,14 @@ public class UnitContainer
 
     public void ClearDestroyedUnits()
     {
-        for (Unit unit: getUnits())
-        {
-        	if(unit.isBird()) {
-        		getUnits().remove(unit);
+    	Bird b;
+    	Iterator<Unit> it = getUnits().iterator();
+		while (it.hasNext()) {
+			b = (Bird) it.next();
+        	if(b.isDead()) {
+        		it.remove();
         	}
-        }
+		}
     }
 
     public void ClearAllUnits()

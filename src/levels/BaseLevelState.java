@@ -2,9 +2,9 @@ package levels;
 
 import java.util.Random;
 
+import models.Unit;
 import controllers.GameController;
 import factories.UnitFactory;
-import models.Unit;
 
 public abstract class BaseLevelState implements ILevel {
 	private GameController gameController;
@@ -65,7 +65,7 @@ public abstract class BaseLevelState implements ILevel {
         {
 //            _lastSpawn = game.getTime();
             _totalSpawns++;
-            return UnitFactory.getInstance().createUnit(AllowedUnits[rnd.nextInt(AllowedUnits.length)], rnd.nextInt(1600), rnd.nextInt(900), 1, 0);
+            return UnitFactory.getInstance().createUnit(AllowedUnits[rnd.nextInt(AllowedUnits.length)], rnd.nextInt(900), rnd.nextInt(700), 1, 0);
 //            return UnitFactory<Unit>.Create(AllowedUnits[rnd.nextInt(AllowedUnits.length)]);
             //return UnitFactory.createRandomUnit(game, AllowedUnits);
         }

@@ -102,13 +102,17 @@ public class GameController extends JFrame {
 	      
 	   }
 	   
+	   public void setGameRunning(boolean b) {
+		   gameRunning = b;
+	   }
+	   
 	   private void doGameUpdates(double delta)
 	   {
 		   // updates times delta, so we have no problems with fps/gameupdates
 		   if(unitContainer.getNumUnits() != 0){
 		   MoveContainer.getInstance().moveUnits(delta);
 		   }
-		   unitContainer.ClearDestroyedUnits();
+//		   unitContainer.ClearDestroyedUnits();
 
 
            LevelFactory.getInstance().getCurrentLevel().Update(this);
