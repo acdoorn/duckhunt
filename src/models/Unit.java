@@ -18,6 +18,7 @@ public abstract class Unit
 	protected double width;
 	protected double height;
 	protected BaseUnitState state;
+	protected boolean dead;
 	
 	
 	public int score;
@@ -53,7 +54,7 @@ public abstract class Unit
         moveBehaviour = bf.createMoveBehaviour(this);
 
         moveContainer.add(moveBehaviour);
-
+        this.dead = false;
     }
     
 
@@ -61,6 +62,7 @@ public abstract class Unit
 
 		MoveContainer.getInstance().remove(moveBehaviour);
 		UnitContainer.getInstance().removeUnit(this);
+		this.dead = true;
 		
 	}
 
@@ -71,6 +73,9 @@ public abstract class Unit
         return _state.onClick(this, point);
     }
     
+    public boolean isDead(){
+    	return dead;
+    }
     
     public boolean isHit(Point point)
     {

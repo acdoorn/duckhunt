@@ -98,7 +98,7 @@ public class MainPanel extends JPanel {
     		
     		for(Iterator<UnitView> iterator = unitViews.iterator(); iterator.hasNext();){
     			UnitView v = iterator.next();
-    			if(v.getUnit() == null){ //if(v.getUnit().getState() == died){
+    			if(v.getUnit().isDead()){ //if(v.getUnit().getState() == died){
     				this.remove(v);
     				iterator.remove();
     			}else {
