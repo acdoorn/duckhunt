@@ -20,7 +20,7 @@ public class GameController extends JFrame {
 	private UnitContainer unitContainer;
 	private InputContainer inputContainer;
 	private double delta;
-    public int currentScore;
+    private int currentScore;
     private int fps;
 
 	public GameController() {
@@ -29,6 +29,8 @@ public class GameController extends JFrame {
 		this.inputContainer = InputContainer.getInstance();
 		Bird.register();
 		Bullet.register();
+		 
+	      currentScore = 0;
 	}
 	
 	private void initUI() {
@@ -57,8 +59,7 @@ public class GameController extends JFrame {
 	   {
 	      long lastLoopTime = System.nanoTime();
 	      final int TARGET_FPS = 60;
-	      final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;   
-	      currentScore = 0;
+	      final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;  
           LevelFactory.getInstance().NewGame(this);
 
 	      while (gameRunning)
@@ -109,7 +110,6 @@ public class GameController extends JFrame {
 		   }
 		   unitContainer.ClearDestroyedUnits();
 
-           currentScore += inputContainer.getEarnedScore();
 
            LevelFactory.getInstance().getCurrentLevel().Update(this);
 
@@ -121,7 +121,15 @@ public class GameController extends JFrame {
                unitContainer.AddUnit(newUnit);
            }
            inputContainer.HandleInputs(this);
+           if(inputContainer.getEarnedScore() == 1)
+        	   currentScore++;
+
+		   System.out.println(currentScore + " " + inputContainer.getEarnedScore());
 	      
+	   }
+	   
+	   public int getCurrentScore() {
+		   return currentScore;
 	   }
 	   
 	   public double getDelta() {
