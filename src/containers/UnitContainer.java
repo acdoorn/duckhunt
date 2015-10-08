@@ -5,8 +5,8 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
-import controllers.GameController;
 import models.Unit;
+import controllers.GameController;
 
 public class UnitContainer
 {
@@ -43,14 +43,19 @@ public class UnitContainer
 
     public void ClearDestroyedUnits()
     {
-    	//TODO clear all units that are dead
+        for (Unit unit: getUnits())
+        {
+        	if(unit.isBird()) {
+        		getUnits().remove(unit);
+        	}
+        }
     }
 
     public void ClearAllUnits()
     {
         for (Unit unit: getUnits())
         {
-        	//TODO die
+        	unit.die();
         }
         ClearDestroyedUnits();
     }

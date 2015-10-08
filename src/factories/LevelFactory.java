@@ -32,7 +32,11 @@ public class LevelFactory {
     	game.setGameRunning(false);
         game.getUnitContainer().ClearAllUnits();
         this.currentLevel = CreateLevel(currentLevel + 1);
+
         game.startGame();
+
+        
+
     }
     
     private GeneratedLevel CreateLevel(int level)
