@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
 import containers.InputContainer;
+import containers.UnitContainer;
 import factories.LevelFactory;
 import models.Unit;
 
@@ -100,7 +101,9 @@ public class MainPanel extends JPanel {
     			UnitView v = iterator.next();
     			if(v.getUnit().isDead()){ //if(v.getUnit().getState() == died){
     				this.remove(v);
+    				//UnitContainer.getInstance().removeUnit(v.getUnit());
     				iterator.remove();
+    				
     			}else {
 	    			if(v.getUnit().equals(u)){
 	    				existing = true;
