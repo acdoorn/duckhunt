@@ -25,7 +25,6 @@ public class GeneratedLevel extends BaseLevelState
 	@Override
     public void Update(GameController game)
     {
-//		System.out.println(Kills + " " + MaxSpawns + " " + MaxUnits);
 		if(Kills == MaxSpawns) {
 			Kills = 0;
 			this.StartNextLevel(game);

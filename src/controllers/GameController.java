@@ -112,7 +112,6 @@ public class GameController extends JFrame {
 		   if(unitContainer.getNumUnits() != 0){
 		   MoveContainer.getInstance().moveUnits(delta);
 		   }
-//		   unitContainer.ClearDestroyedUnits();
 
 
            LevelFactory.getInstance().getCurrentLevel().Update(this);

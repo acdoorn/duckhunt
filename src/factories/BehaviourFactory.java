@@ -1,7 +1,7 @@
 package factories;
 
-import behaviours.MoveBehaviour;
 import models.Unit;
+import behaviours.MoveBehaviour;
 
 public class BehaviourFactory {
 	private static BehaviourFactory instance;
@@ -19,8 +19,4 @@ public class BehaviourFactory {
      {
          return new MoveBehaviour(unit);
      }
-//     public DrawBehaviour createDrawBehaviour(Unit unit)
-//     {
-//         return new DrawBehaviour(unit, 0.07, 0, true);
-//     }
 }

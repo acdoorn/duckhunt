@@ -65,12 +65,7 @@ public class LevelFactory {
         // anders alleen redbird
         return new String[] { "redbird" };
     }
-
-    /// <summary>
-    /// Functie om het maximale aantal units van het huidige level te bepalen.
-    /// </summary>
-    /// <param name="level">het huidige level</param>
-    /// <returns>het aantal units.</returns>
+	
     private int GetMaxLivingUnits(int level)
     {
         if (level <= 1)
@@ -84,21 +79,11 @@ public class LevelFactory {
         return 1;
     }
 
-    /// <summary>
-    /// Functie om het totaal aantal enemies per level te bepalen.
-    /// </summary>
-    /// <param name="level">Het huidige level</param>
-    /// <returns>Het aantal units om te spawnen</returns>
     private int GetMaxSpawns(int level)
     {
         return (int)(Math.floor(Math.sqrt(level) *2)) + 1;
     }
 
-    /// <summary>
-    /// Functie om de delay tussen spawns per level te bepalen.
-    /// </summary>
-    /// <param name="level">het huidige level</param>
-    /// <returns>de delay voor spawnen</returns>
     private double GetSpawnDelay(int level)
     {
         return 1.0/(double)GetMaxLivingUnits(level);
